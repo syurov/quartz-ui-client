@@ -1,0 +1,80 @@
+{
+  "name": "quartz-ui",
+  "version": "0.0.1",
+  "dependencies": {
+    "moment": "~2.8.0",
+    "angular": "~1.5.0",
+    "angular-i18n": "~1.5.0",
+    "bootstrap": "~3.3.1",
+    "angular-cookies": "~1.5.0",
+    "angular-messages": "~1.5.0",
+    "angular-resource": "~1.5.0",
+    "angular-route": "~1.5.0",
+    "angular-sanitize": "~1.5.0",
+    "angular-mask": "~3.0.11",
+    "angular-ui-tree": "~2.1.5",
+    "angular-ui-tinymce": "^0.0.17",
+    "angular-guid": "^0.1.2",
+    "angular-toastr": "~1.2.0",
+    "angular-file-model": "~0.3.1",
+    "font-awesome": "~4.3.0",
+    "oclazyload": "~1.0.0",
+    "spin.js": "~2.0.2",
+    "ng-stats": "~2.5.2",
+    "ng-flow": "~2",
+    "tinymce-i18n": "^4.0.0",
+    "requirejs": "~2.1.15"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.5.0",
+    "angular-scenario": "~1.5.0",
+    "squire": "~0.2.0"
+  },
+  "appPath": "app",
+  "resolutions": {
+    "angular": "~1.5.0"
+  },
+  "overrides": {
+    "angular-i18n": {
+      "main": "angular-locale_ru-ru.js"
+    },
+    "tinymce": {
+      "main": [
+        "tinymce.js",
+        "plugins/table/plugin.js",
+        "plugins/paste/plugin.js",
+        "plugins/lists/plugin.js",
+        "plugins/textcolor/plugin.js",
+        "themes/modern/theme.js",
+        "skins/lightgray/fonts/*",
+        "skins/lightgray/img/*",
+        "skins/lightgray/content.inline.min.css",
+        "skins/lightgray/skin.min.css"
+      ]
+    },
+    "angular-ui-tinymce": {
+      "dependencies": {
+        "angular": ">=1.4.0",
+        "tinymce": "~4.4.3",
+        "tinymce-i18n": "^4.0.0"
+      }
+    },
+    "tinymce-i18n": {
+      "main": [
+        "langs/ru.js"
+      ]
+    },
+    "bootstrap": {
+      "main": [
+        "less/bootstrap.less",
+        "dist/css/bootstrap.css"
+      ],
+      "dependencies": {}
+    },
+    "oclazyload": {
+      "main": [
+        "dist/ocLazyLoad.require.js"
+      ]
+    }
+  }
+}
