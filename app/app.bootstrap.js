@@ -7,7 +7,8 @@
   define(
     [
       'core/app/settings',
-      'core/index'
+      'core/index',
+      'connections/index'
     ],
     function (settings) {
       'use strict';

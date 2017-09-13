@@ -5,12 +5,12 @@
   var namespace = 'main';
   define([
       '../settings',
-
+      '../../connections/settings'
     ],
-    function (settings) {
+    function (settings, connections) {
 
       return settings.createChild(namespace,
-        []
+        [connections.namespace]
       );
 
 
