@@ -4,8 +4,8 @@
 (function (ng) {
 
 
-  var rootNs = 'jemys';
-  var directivePrefix = 'jm';
+  var rootNs = 'quartz';
+  var directivePrefix = 'qz';
 
   var namespace_separator = '.';
 
@@ -27,7 +27,6 @@
     },
 
     createModule: function () {
-
       return ng.module(this.namespace, this.deps || []);
     },
 
