@@ -27,7 +27,8 @@
 
             var watchers = [];
 
-            $scope.test = "hi angular";
+            $scope.data = [];
+            $scope.tabs = [];
 
             //destructor
             $scope.$on("$destroy", function () {

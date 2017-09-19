@@ -5,29 +5,29 @@
 
 
   define([
-      '../module',
-      '../settings'
+      '../../../module',
+      '../../../settings'
     ],
     function (module,
               settings) {
 
       'use strict';
 
-      var depName = settings.getFullName(GroupModalController.name);
+      var depName = settings.getFullName(ConnectionModalController.name);
 
       /**
-       @ngdoc   controller
+       @ngdoc  controller
        @name
        @description
        */
-      GroupModalController.$inject = ["$modalInstance", "group"];
+      ConnectionModalController.$inject = ["$modalInstance", "connection"];
 
-      function GroupModalController($modalInstance, group) {
+      function ConnectionModalController($modalInstance, connection) {
         this.$modalInstance = $modalInstance;
-        this.group = group;
+        this.connection = connection;
       }
 
-      GroupModalController.prototype = {
+      ConnectionModalController.prototype = {
 
         ok: function ok() {
           var that = this;
@@ -35,14 +35,14 @@
             that.showValidation = true;
             return;
           }
-          that.$modalInstance.close(that.group);
+          that.$modalInstance.close(that.connection);
         },
         cancel: function cancel() {
           this.$modalInstance.dismiss("close");
         }
       };
 
-      module.controller(depName, GroupModalController);
+      module.controller(depName, ConnectionModalController);
       return depName;
     });
 

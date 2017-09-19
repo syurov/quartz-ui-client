@@ -4,7 +4,7 @@
  * module connections
  */
 (function (ng) {
-  var namespace = 'connections';
+  var namespace = 'quartz';
   define([
       '../settings'
     ],

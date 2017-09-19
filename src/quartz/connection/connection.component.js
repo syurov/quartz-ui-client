@@ -8,7 +8,7 @@
   define([
       '../module',
       '../settings',
-      '../services/modal.srv'
+      './services/modal.srv'
     ],
     function (module, settings, modalSrvName) {
       'use strict'
@@ -26,29 +26,34 @@
 
         this.modalSrv = modalSrv;
 
-        var json = window.localStorage.getItem("QuartzServerConnections");
+        if (this.isLocalStorage) {
 
-        if (!json) {
-          this.data = [{
-            title: 'project servers',
-            type: 'group',
-            nodes: [
-              {
-                type: 'connection',
-                title: 'scheduler1',
-                url: ''
-              },
-              {
-                type: 'connection',
-                title: 'scheduler2',
-                url: ''
-              }
-            ]
-          }];
+          var json = window.localStorage.getItem("QuartzServerConnections");
 
-          this.saveDataToLocal();
-        } else {
-          this.data = angular.fromJson(json);
+          if (!json) {
+            // this.data = [{
+            //   title: 'project servers',
+            //   type: 'group',
+            //   nodes: [
+            //     {
+            //       type: 'connection',
+            //       title: 'scheduler1',
+            //       url: ''
+            //     },
+            //     {
+            //       type: 'connection',
+            //       title: 'scheduler2',
+            //       url: ''
+            //     }
+            //   ]
+            // }];
+
+            this.saveDataToLocal();
+          } else {
+            var data = angular.fromJson(json);
+            this.data.length = 0;
+            angular.extend(this.data, data);
+          }
         }
 
       }
@@ -59,9 +64,10 @@
         },
 
         saveDataToLocal: function () {
-          var json = angular.toJson(this.data);
-
-          window.localStorage.setItem("QuartzServerConnections", json);
+          if (this.isLocalStorage) {
+            var json = angular.toJson(this.data);
+            window.localStorage.setItem("QuartzServerConnections", json);
+          }
         },
 
         addGroup: function () {
@@ -132,6 +138,22 @@
           } else if (this.isConnection(nodeData)) {
             this.editConnection(nodeData);
           }
+        },
+
+        open: function (scope) {
+          var nodeData = scope.$modelValue;
+          if (this.isConnection(nodeData)) {
+            if (!nodeData.isOpen) {
+              nodeData.isOpen = true;
+              if (this.tabs.indexOf(nodeData) < 0)
+                this.tabs.push(nodeData);
+            } else {
+              nodeData.isOpen = false;
+              var indexOf = this.tabs.indexOf(nodeData);
+              if (indexOf >= 0)
+                this.tabs.splice(indexOf, 1);
+            }
+          }
         }
         ,
         remove: function (scope) {
@@ -152,8 +174,12 @@
 
       module.component(depName, {
         controller: Connections,
-        templateUrl: "connections/components/connection.component.tpl.html",
-        bindings: {}
+        templateUrl: "quartz/connection/connection.component.tpl.html",
+        bindings: {
+          data: "<",
+          isLocalStorage: "<",
+          tabs: "<",
+        }
       });
 
       return depName;

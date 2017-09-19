@@ -8,7 +8,7 @@
     [
       'core/app/settings',
       'core/index',
-      'connections/index'
+      'quartz/index'
     ],
     function (settings) {
       'use strict';

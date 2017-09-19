@@ -5,7 +5,7 @@
   var namespace = 'main';
   define([
       '../settings',
-      '../../connections/settings'
+      '../../quartz/settings'
     ],
     function (settings, connections) {
 

@@ -1,0 +1,6 @@
+
+<tabset active="$ctrl.active">
+  <tab index="$index" ng-repeat="tab in $ctrl.tabs" heading="{{tab.title}}" disable="tab.disabled">
+    {{tab.url}}
+  </tab>
+</tabset>

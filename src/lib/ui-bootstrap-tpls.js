@@ -216,8 +216,8 @@ angular.module('ui.bootstrap.accordion', ['ui.bootstrap.collapse'])
 
   }])
 
-// The accordion directive simply sets up the directive controller
-// and adds an accordion CSS class to itself element.
+  // The accordion directive simply sets up the directive controller
+  // and adds an accordion CSS class to itself element.
   .directive('accordion', function () {
     return {
       restrict: 'EA',
@@ -228,7 +228,7 @@ angular.module('ui.bootstrap.accordion', ['ui.bootstrap.collapse'])
     };
   })
 
-// The accordion-group directive indicates a block of html that will expand and collapse in an accordion
+  // The accordion-group directive indicates a block of html that will expand and collapse in an accordion
   .directive('accordionGroup', function () {
     return {
       require: '^accordion',         // We need this directive to be inside an accordion
@@ -268,10 +268,10 @@ angular.module('ui.bootstrap.accordion', ['ui.bootstrap.collapse'])
     };
   })
 
-// Use accordion-heading below an accordion-group to provide a heading containing HTML
-// <accordion-group>
-//   <accordion-heading>Heading containing HTML - <img src="..."></accordion-heading>
-// </accordion-group>
+  // Use accordion-heading below an accordion-group to provide a heading containing HTML
+  // <accordion-group>
+  //   <accordion-heading>Heading containing HTML - <img src="..."></accordion-heading>
+  // </accordion-group>
   .directive('accordionHeading', function () {
     return {
       restrict: 'EA',
@@ -289,12 +289,12 @@ angular.module('ui.bootstrap.accordion', ['ui.bootstrap.collapse'])
     };
   })
 
-// Use in the accordion-group template to indicate where you want the heading to be transcluded
-// You must provide the property on the accordion-group controller that will hold the transcluded element
-// <div class="accordion-group">
-//   <div class="accordion-heading" ><a ... accordion-transclude="heading">...</a></div>
-//   ...
-// </div>
+  // Use in the accordion-group template to indicate where you want the heading to be transcluded
+  // You must provide the property on the accordion-group controller that will hold the transcluded element
+  // <div class="accordion-group">
+  //   <div class="accordion-heading" ><a ... accordion-transclude="heading">...</a></div>
+  //   ...
+  // </div>
   .directive('accordionTransclude', function () {
     return {
       require: '^accordionGroup',
@@ -482,6 +482,7 @@ angular.module('ui.bootstrap.carousel', ['ui.bootstrap.transition'])
           goNext();
         }
       }
+
       function goNext() {
         // Scope has been destroyed, stop here.
         if (destroyed) {
@@ -632,44 +633,44 @@ angular.module('ui.bootstrap.carousel', ['ui.bootstrap.transition'])
 
   }])
 
-/**
- * @ngdoc directive
- * @name ui.bootstrap.carousel.directive:carousel
- * @restrict EA
- *
- * @description
- * Carousel is the outer container for a set of image 'slides' to showcase.
- *
- * @param {number=} interval The time, in milliseconds, that it will take the carousel to go to the next slide.
- * @param {boolean=} noTransition Whether to disable transitions on the carousel.
- * @param {boolean=} noPause Whether to disable pausing on the carousel (by default, the carousel interval pauses on hover).
- *
- * @example
- <example module="ui.bootstrap">
- <file name="index.html">
- <carousel>
- <slide>
- <img src="http://placekitten.com/150/150" style="margin:auto;">
- <div class="carousel-caption">
- <p>Beautiful!</p>
- </div>
- </slide>
- <slide>
- <img src="http://placekitten.com/100/150" style="margin:auto;">
- <div class="carousel-caption">
- <p>D'aww!</p>
- </div>
- </slide>
- </carousel>
- </file>
- <file name="demo.css">
- .carousel-indicators {
+  /**
+   * @ngdoc directive
+   * @name ui.bootstrap.carousel.directive:carousel
+   * @restrict EA
+   *
+   * @description
+   * Carousel is the outer container for a set of image 'slides' to showcase.
+   *
+   * @param {number=} interval The time, in milliseconds, that it will take the carousel to go to the next slide.
+   * @param {boolean=} noTransition Whether to disable transitions on the carousel.
+   * @param {boolean=} noPause Whether to disable pausing on the carousel (by default, the carousel interval pauses on hover).
+   *
+   * @example
+   <example module="ui.bootstrap">
+   <file name="index.html">
+   <carousel>
+   <slide>
+   <img src="http://placekitten.com/150/150" style="margin:auto;">
+   <div class="carousel-caption">
+   <p>Beautiful!</p>
+   </div>
+   </slide>
+   <slide>
+   <img src="http://placekitten.com/100/150" style="margin:auto;">
+   <div class="carousel-caption">
+   <p>D'aww!</p>
+   </div>
+   </slide>
+   </carousel>
+   </file>
+   <file name="demo.css">
+   .carousel-indicators {
       top: auto;
       bottom: 15px;
     }
- </file>
- </example>
- */
+   </file>
+   </example>
+   */
   .directive('carousel', [function () {
     return {
       restrict: 'EA',
@@ -686,46 +687,46 @@ angular.module('ui.bootstrap.carousel', ['ui.bootstrap.transition'])
     };
   }])
 
-/**
- * @ngdoc directive
- * @name ui.bootstrap.carousel.directive:slide
- * @restrict EA
- *
- * @description
- * Creates a slide inside a {@link ui.bootstrap.carousel.directive:carousel carousel}.  Must be placed as a child of a carousel element.
- *
- * @param {boolean=} active Model binding, whether or not this slide is currently active.
- *
- * @example
- <example module="ui.bootstrap">
- <file name="index.html">
- <div ng-controller="CarouselDemoCtrl">
- <carousel>
- <slide ng-repeat="slide in slides" active="slide.active">
- <img ng-src="{{slide.image}}" style="margin:auto;">
- <div class="carousel-caption">
- <h4>Slide {{$index}}</h4>
- <p>{{slide.text}}</p>
- </div>
- </slide>
- </carousel>
- Interval, in milliseconds: <input type="number" ng-model="myInterval">
- <br />Enter a negative number to stop the interval.
- </div>
- </file>
- <file name="script.js">
- function CarouselDemoCtrl($scope) {
+  /**
+   * @ngdoc directive
+   * @name ui.bootstrap.carousel.directive:slide
+   * @restrict EA
+   *
+   * @description
+   * Creates a slide inside a {@link ui.bootstrap.carousel.directive:carousel carousel}.  Must be placed as a child of a carousel element.
+   *
+   * @param {boolean=} active Model binding, whether or not this slide is currently active.
+   *
+   * @example
+   <example module="ui.bootstrap">
+   <file name="index.html">
+   <div ng-controller="CarouselDemoCtrl">
+   <carousel>
+   <slide ng-repeat="slide in slides" active="slide.active">
+   <img ng-src="{{slide.image}}" style="margin:auto;">
+   <div class="carousel-caption">
+   <h4>Slide {{$index}}</h4>
+   <p>{{slide.text}}</p>
+   </div>
+   </slide>
+   </carousel>
+   Interval, in milliseconds: <input type="number" ng-model="myInterval">
+   <br />Enter a negative number to stop the interval.
+   </div>
+   </file>
+   <file name="script.js">
+   function CarouselDemoCtrl($scope) {
   $scope.myInterval = 5000;
 }
- </file>
- <file name="demo.css">
- .carousel-indicators {
+   </file>
+   <file name="demo.css">
+   .carousel-indicators {
       top: auto;
       bottom: 15px;
     }
- </file>
- </example>
- */
+   </file>
+   </example>
+   */
 
   .directive('slide', function () {
     return {
@@ -2073,9 +2074,9 @@ angular.module('ui.bootstrap.modal', ['ui.bootstrap.transition'])
     };
   })
 
-/**
- * A helper directive for the $modal service. It creates a backdrop element.
- */
+  /**
+   * A helper directive for the $modal service. It creates a backdrop element.
+   */
   .directive('modalBackdrop', ['$timeout', function ($timeout) {
     return {
       restrict: 'EA',
@@ -2334,8 +2335,8 @@ angular.module('ui.bootstrap.modal', ['ui.bootstrap.transition'])
             return options.template ? $q.when(options.template) :
               $http.get(angular.isFunction(options.templateUrl) ? (options.templateUrl)() : options.templateUrl,
                 {cache: $templateCache}).then(function (result) {
-                  return result.data;
-                });
+                return result.data;
+              });
           }
 
           function getResolvePromises(resolves) {
@@ -3275,36 +3276,36 @@ angular.module('ui.bootstrap.tabs', [])
     });
   }])
 
-/**
- * @ngdoc directive
- * @name ui.bootstrap.tabs.directive:tabset
- * @restrict EA
- *
- * @description
- * Tabset is the outer container for the tabs directive
- *
- * @param {boolean=} vertical Whether or not to use vertical styling for the tabs.
- * @param {boolean=} justified Whether or not to use justified styling for the tabs.
- *
- * @example
- <example module="ui.bootstrap">
- <file name="index.html">
- <tabset>
- <tab heading="Tab 1"><b>First</b> Content!</tab>
- <tab heading="Tab 2"><i>Second</i> Content!</tab>
- </tabset>
- <hr />
- <tabset vertical="true">
- <tab heading="Vertical Tab 1"><b>First</b> Vertical Content!</tab>
- <tab heading="Vertical Tab 2"><i>Second</i> Vertical Content!</tab>
- </tabset>
- <tabset justified="true">
- <tab heading="Justified Tab 1"><b>First</b> Justified Content!</tab>
- <tab heading="Justified Tab 2"><i>Second</i> Justified Content!</tab>
- </tabset>
- </file>
- </example>
- */
+  /**
+   * @ngdoc directive
+   * @name ui.bootstrap.tabs.directive:tabset
+   * @restrict EA
+   *
+   * @description
+   * Tabset is the outer container for the tabs directive
+   *
+   * @param {boolean=} vertical Whether or not to use vertical styling for the tabs.
+   * @param {boolean=} justified Whether or not to use justified styling for the tabs.
+   *
+   * @example
+   <example module="ui.bootstrap">
+   <file name="index.html">
+   <tabset>
+   <tab heading="Tab 1"><b>First</b> Content!</tab>
+   <tab heading="Tab 2"><i>Second</i> Content!</tab>
+   </tabset>
+   <hr />
+   <tabset vertical="true">
+   <tab heading="Vertical Tab 1"><b>First</b> Vertical Content!</tab>
+   <tab heading="Vertical Tab 2"><i>Second</i> Vertical Content!</tab>
+   </tabset>
+   <tabset justified="true">
+   <tab heading="Justified Tab 1"><b>First</b> Justified Content!</tab>
+   <tab heading="Justified Tab 2"><i>Second</i> Justified Content!</tab>
+   </tabset>
+   </file>
+   </example>
+   */
   .directive('tabset', function () {
     return {
       restrict: 'EA',
@@ -3322,47 +3323,47 @@ angular.module('ui.bootstrap.tabs', [])
     };
   })
 
-/**
- * @ngdoc directive
- * @name ui.bootstrap.tabs.directive:tab
- * @restrict EA
- *
- * @param {string=} heading The visible heading, or title, of the tab. Set HTML headings with {@link ui.bootstrap.tabs.directive:tabHeading tabHeading}.
- * @param {string=} select An expression to evaluate when the tab is selected.
- * @param {boolean=} active A binding, telling whether or not this tab is selected.
- * @param {boolean=} disabled A binding, telling whether or not this tab is disabled.
- *
- * @description
- * Creates a tab with a heading and content. Must be placed within a {@link ui.bootstrap.tabs.directive:tabset tabset}.
- *
- * @example
- <example module="ui.bootstrap">
- <file name="index.html">
- <div ng-controller="TabsDemoCtrl">
- <button class="btn btn-small" ng-click="items[0].active = true">
- Select item 1, using active binding
- </button>
- <button class="btn btn-small" ng-click="items[1].disabled = !items[1].disabled">
- Enable/disable item 2, using disabled binding
- </button>
- <br />
- <tabset>
- <tab heading="Tab 1">First Tab</tab>
- <tab select="alertMe()">
- <tab-heading><i class="icon-bell"></i> Alert me!</tab-heading>
- Second Tab, with alert callback and html heading!
- </tab>
- <tab ng-repeat="item in items"
- heading="{{item.title}}"
- disabled="item.disabled"
- active="item.active">
- {{item.content}}
- </tab>
- </tabset>
- </div>
- </file>
- <file name="script.js">
- function TabsDemoCtrl($scope) {
+  /**
+   * @ngdoc directive
+   * @name ui.bootstrap.tabs.directive:tab
+   * @restrict EA
+   *
+   * @param {string=} heading The visible heading, or title, of the tab. Set HTML headings with {@link ui.bootstrap.tabs.directive:tabHeading tabHeading}.
+   * @param {string=} select An expression to evaluate when the tab is selected.
+   * @param {boolean=} active A binding, telling whether or not this tab is selected.
+   * @param {boolean=} disabled A binding, telling whether or not this tab is disabled.
+   *
+   * @description
+   * Creates a tab with a heading and content. Must be placed within a {@link ui.bootstrap.tabs.directive:tabset tabset}.
+   *
+   * @example
+   <example module="ui.bootstrap">
+   <file name="index.html">
+   <div ng-controller="TabsDemoCtrl">
+   <button class="btn btn-small" ng-click="items[0].active = true">
+   Select item 1, using active binding
+   </button>
+   <button class="btn btn-small" ng-click="items[1].disabled = !items[1].disabled">
+   Enable/disable item 2, using disabled binding
+   </button>
+   <br />
+   <tabset>
+   <tab heading="Tab 1">First Tab</tab>
+   <tab select="alertMe()">
+   <tab-heading><i class="icon-bell"></i> Alert me!</tab-heading>
+   Second Tab, with alert callback and html heading!
+   </tab>
+   <tab ng-repeat="item in items"
+   heading="{{item.title}}"
+   disabled="item.disabled"
+   active="item.active">
+   {{item.content}}
+   </tab>
+   </tabset>
+   </div>
+   </file>
+   <file name="script.js">
+   function TabsDemoCtrl($scope) {
       $scope.items = [
         { title:"Dynamic Title 1", content:"Dynamic Item 0" },
         { title:"Dynamic Title 2", content:"Dynamic Item 1", disabled: true }
@@ -3374,34 +3375,34 @@ angular.module('ui.bootstrap.tabs', [])
         });
       };
     };
- </file>
- </example>
- */
+   </file>
+   </example>
+   */
 
-/**
- * @ngdoc directive
- * @name ui.bootstrap.tabs.directive:tabHeading
- * @restrict EA
- *
- * @description
- * Creates an HTML heading for a {@link ui.bootstrap.tabs.directive:tab tab}. Must be placed as a child of a tab element.
- *
- * @example
- <example module="ui.bootstrap">
- <file name="index.html">
- <tabset>
- <tab>
- <tab-heading><b>HTML</b> in my titles?!</tab-heading>
- And some content, too!
- </tab>
- <tab>
- <tab-heading><i class="icon-heart"></i> Icon heading?!?</tab-heading>
- That's right.
- </tab>
- </tabset>
- </file>
- </example>
- */
+  /**
+   * @ngdoc directive
+   * @name ui.bootstrap.tabs.directive:tabHeading
+   * @restrict EA
+   *
+   * @description
+   * Creates an HTML heading for a {@link ui.bootstrap.tabs.directive:tab tab}. Must be placed as a child of a tab element.
+   *
+   * @example
+   <example module="ui.bootstrap">
+   <file name="index.html">
+   <tabset>
+   <tab>
+   <tab-heading><b>HTML</b> in my titles?!</tab-heading>
+   And some content, too!
+   </tab>
+   <tab>
+   <tab-heading><i class="icon-heart"></i> Icon heading?!?</tab-heading>
+   That's right.
+   </tab>
+   </tabset>
+   </file>
+   </example>
+   */
   .directive('tab', ['$parse', function ($parse) {
     return {
       require: '^tabset',
@@ -3498,13 +3499,14 @@ angular.module('ui.bootstrap.tabs', [])
         });
       }
     };
+
     function isTabHeading(node) {
       return node.tagName && (
         node.hasAttribute('tab-heading') ||
         node.hasAttribute('data-tab-heading') ||
         node.tagName.toLowerCase() === 'tab-heading' ||
         node.tagName.toLowerCase() === 'data-tab-heading'
-        );
+      );
     }
   })
 
@@ -3947,7 +3949,7 @@ angular.module('ui.bootstrap.typeahead', ['ui.bootstrap.position', 'ui.bootstrap
           //we need to propagate user's query so we can higlight matches
           scope.query = undefined;
 
-          //Declare the timeout promise var outside the function scope so that stacked calls can be cancelled later 
+          //Declare the timeout promise var outside the function scope so that stacked calls can be cancelled later
           var timeoutPromise;
 
           var scheduleSearchWithTimeout = function (inputValue) {

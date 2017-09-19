@@ -4,16 +4,15 @@
 (function (ng) {
 
   define([
-      '../module',
-      '../settings',
-      '../forms/group.create.modal.ctrl',
-      '../forms/connection.create.modal.ctrl',
+      '../../module',
+      '../../settings',
+      './forms/group.create.modal.ctrl',
+      './forms/connection.create.modal.ctrl',
     ],
     function (module,
               settings,
               modalGroupCreateCtrlName,
-              modalConnectionCreateCtrlName
-              ) {
+              modalConnectionCreateCtrlName) {
       'use strict';
 
       var depName = settings.getFullName(ModalService.name);
@@ -32,7 +31,7 @@
       ModalService.prototype = {
         showCreateGroupDialog: function (group) {
           var modalInstance = this.$modal.open({
-            templateUrl: "connections/forms/group.create.modal.tpl.html",
+            templateUrl: "quartz/connection/services/forms/group.create.modal.tpl.html",
             controller: modalGroupCreateCtrlName,
             controllerAs: '$ctrl',
             size: 'sm',
@@ -53,7 +52,7 @@
         },
         showCreateConnectionDialog: function (connection) {
           var modalInstance = this.$modal.open({
-            templateUrl: "connections/forms/connection.create.modal.tpl.html",
+            templateUrl: "quartz/connection/services/forms/connection.create.modal.tpl.html",
             controller: modalConnectionCreateCtrlName,
             controllerAs: '$ctrl',
             size: 'sm',

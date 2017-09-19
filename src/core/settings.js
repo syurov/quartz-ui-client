@@ -4,10 +4,10 @@
 (function (ng) {
   var namespace = 'core';
   define(['../settings'],
-      function (settings) {
+    function (settings) {
 
-        return settings.createChild(namespace);
+      return settings.createChild(namespace);
 
-      });
+    });
 
 })(window.angular);
