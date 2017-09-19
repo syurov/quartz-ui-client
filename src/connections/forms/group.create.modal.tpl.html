@@ -1,0 +1,19 @@
+<div class="modal-header">
+  <h3 class="modal-title" id="modal-title">Group connections</h3>
+</div>
+<div class="modal-body schedule_block">
+  <form name="$ctrl.form" class="form" role="form">
+    <input class="form-control" type="text" required
+           id="groupName" name="groupName"
+           ng-model="$ctrl.group.title">
+  </form>
+</div>
+
+<div class="modal-footer">
+  <button id="saveCmd" class="btn btn-success"
+          ng-class="{'btn-success':$ctrl.form.$valid, 'btn-warning':$ctrl.form.$invalid}"
+          ng-click="$ctrl.ok()">
+    Save
+  </button>
+  <button class="btn btn-default" ng-click="$ctrl.cancel()">Close</button>
+</div>

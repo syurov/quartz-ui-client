@@ -30,7 +30,7 @@
     "angular-scenario": "~1.5.0",
     "squire": "~0.2.0"
   },
-  "appPath": "app",
+  "appPath": "src",
   "resolutions": {
     "angular": "~1.5.0"
   },

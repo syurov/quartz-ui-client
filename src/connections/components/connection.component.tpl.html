@@ -1,0 +1,44 @@
+<script type="text/ng-template" id="nodes_renderer.html">
+  <div ui-tree-handle class="tree-node tree-node-content">
+
+    <a class="btn btn-success btn-xs" ng-if="node.nodes && node.nodes.length > 0" data-nodrag
+       ng-click="$ctrl.toggle(this)">
+      <span class="fa"
+            ng-class="{'fa-chevron-right': this.collapsed, 'fa-chevron-down': !this.collapsed}"></span>
+    </a>
+    <b ng-click="$ctrl.select(node)">{{node.title}}</b>
+    <a class="pull-right btn btn-danger btn-xs" data-nodrag ng-click="$ctrl.remove(this)">
+      <span class="fa fa-minus"></span></a>
+    <a class="pull-right btn btn-primary btn-xs" data-nodrag ng-click="$ctrl.newConnection(this)"
+       ng-if="node.nodes"><span class="fa fa-plus-circle"></span></a>
+    <a class="pull-right btn btn-primary btn-xs" data-nodrag ng-click="$ctrl.edit(this)">
+      <span class="fa fa-pencil"></span></a>
+
+  </div>
+
+
+  <ol ui-tree-nodes ng-model="node.nodes" ng-class="{hidden: this.collapsed}">
+    <li ng-repeat="node in node.nodes" ui-tree-node ng-include="'nodes_renderer.html'">
+    </li>
+  </ol>
+
+</script>
+
+
+<div class="row">
+  <div class="col-sm-2">
+    <div class="row">
+      <div class="pull-right">
+        <button ng-click="$ctrl.addGroup()"><span class="fa fa-plus-circle"></span></button>
+        <!--<button ng-click="collapseAll()">Collapse all</button>-->
+      </div>
+    </div>
+    <div class="row">
+      <div ui-tree id="tree-root" drop-enabled="false" drag-enabled="false">
+        <ol ui-tree-nodes ng-model="$ctrl.data">
+          <li ng-repeat="node in $ctrl.data" ui-tree-node ng-include="'nodes_renderer.html'"></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
