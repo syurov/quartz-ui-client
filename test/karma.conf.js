@@ -52,7 +52,7 @@ module.exports = function(config) {
       'bower_components/angular-scenario/angular-scenario.js',
       'bower_components/squire/src/Squire.js',
       // endbower
-      'app/scripts/**/*.js',
+      'src/**/*.js',
       'test/mock/**/*.js',
       'test/spec/**/*.js'
     ],
