@@ -78,7 +78,7 @@
             nodes: []
           };
 
-          this.editGroup(group).then(() => {
+          this.editGroup(group).then(function() {
             this.data.push(group);
             this.saveDataToLocal();
           });
@@ -93,7 +93,7 @@
           };
 
           this.editConnection(connection).then(
-            () => {
+            function() {
               nodeData.nodes.push(connection);
               this.saveDataToLocal();
             }
@@ -107,7 +107,7 @@
           var dialog = this.modalSrv.showCreateConnectionDialog(c);
 
           dialog.then(
-            () => {
+            function() {
               angular.extend(connection, c);
               this.saveDataToLocal();
             }
@@ -121,7 +121,7 @@
           var dialog = this.modalSrv.showCreateGroupDialog(g);
 
           dialog.then(
-            () => {
+            function() {
               angular.extend(group, g);
               this.saveDataToLocal();
             }

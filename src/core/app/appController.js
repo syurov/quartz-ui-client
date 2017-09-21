@@ -27,8 +27,8 @@
 
             var watchers = [];
 
-            $scope.data = [];
-            $scope.tabs = [];
+            this.data = [];
+            this.tabs = [];
 
             //destructor
             $scope.$on("$destroy", function () {
@@ -39,6 +39,8 @@
             });
 
           }]);
+
+      return depName;
     });
 
 })(window.angular);
