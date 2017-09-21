@@ -9,8 +9,7 @@
     ],
     function (settings, connections) {
 
-      return settings.createChild(namespace,   [connections.namespace]
-      );
+      return settings.createChild(namespace, [connections.namespace]);
 
 
     });
