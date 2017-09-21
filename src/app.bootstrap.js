@@ -6,9 +6,9 @@
 
   define(
     [
-      'core/app/settings',
-      'core/index',
-      'quartz/index'
+      './core/app/settings',
+      './core/index',
+      './quartz/index'
     ],
     function (settings) {
       'use strict';

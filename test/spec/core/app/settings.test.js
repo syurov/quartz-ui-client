@@ -1,14 +1,14 @@
 define([
-    '../../../../src/core/app/settings',
-    '../../../../src/settings'],
+    'src/core/app/settings',
+    'src/settings'],
   function (settings, root) {
     describe('module app tests', function () {
 
-      var ns = 'qz.core.main';
+      var ns = 'quartz.core.main';
 
       it('root defined', function () {
         expect(root).toBeDefined();
-        expect(root.namespace).toEqual('jemys');
+        expect(root.namespace).toEqual('quartz');
         expect(root.getFullName).toBeDefined();
         expect(angular.isFunction(root.getFullName)).toEqual(true);
 

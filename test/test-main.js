@@ -19,13 +19,13 @@ for (var file in window.__karma__.files) {
 
 
 require.config({
-    baseUrl: 'base/src',
+    baseUrl: 'base',
     paths: {
       Squire: '../bower_components/squire/src/Squire'
     },
 
     // ask Require.js to load these files (all our tests)
-    deps: ['app.bootstrap'].concat(tests)
+    deps: ['src/app.bootstrap'].concat(tests)
 
     // start test run, once Require.js is done
     //callback: window.__karma__.start
