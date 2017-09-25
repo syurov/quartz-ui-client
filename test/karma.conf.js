@@ -13,24 +13,19 @@ module.exports = function (config) {
 
     // testing framework to use (jasmine/mocha/qunit/...)
     // as well as any additional frameworks (requirejs/chai/sinon/...)
-    frameworks: ['jasmine'],
+    frameworks: ['jasmine', 'requirejs'],
 
     // list of files / patterns to load in the browser
     files: [
       // bower:js
       'bower_components/angular/angular.js',
-      'bower_components/angular-cookies/angular-cookies.js',
-      'bower_components/angular-messages/angular-messages.js',
-      'bower_components/angular-resource/angular-resource.js',
       'bower_components/angular-ui-tree/dist/angular-ui-tree.js',
-      'bower_components/angular-guid/guid.js',
-
       'bower_components/angular-mocks/angular-mocks.js',
-      //'bower_components/angular-scenario/angular-scenario.js',
       'bower_components/requirejs/require.js',
+
       // endbower
 
-      {pattern: 'src/lib/*.js', included: true},
+      'src/lib/*.js',
 
 
       // зависимости подключаемые через RequireJS
@@ -52,7 +47,6 @@ module.exports = function (config) {
     port: 9052,
 
 
-
     // Start these browsers, currently available:
     // - Chrome
     // - ChromeCanary
@@ -69,10 +63,11 @@ module.exports = function (config) {
     plugins: [
       'karma-phantomjs-launcher',
       'karma-chrome-launcher',
-      'karma-jasmine'
+      'karma-jasmine',
+      'karma-requirejs'
     ],
 
-   // reporters: ['progress', 'coverage', 'html', 'verbose'],
+    // reporters: ['progress', 'coverage', 'html', 'verbose'],
     reporters: ['progress'],
 
     // Continuous Integration mode

@@ -1,11 +1,12 @@
 define([
+
     'src/core/app/appController'
   ],
   function (ctrlName) {
     describe('appController tests', function () {
 
-       // load the controller's module
-       beforeEach(module('quartz.core.main'));
+      // load the controller's module
+      beforeEach(module('quartz.core.main'));
 
       var MainCtrl,
         scope;

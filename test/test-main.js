@@ -1,6 +1,5 @@
 'use strict';
 var tests = [];
-var rtests = [];
 
 
 for (var file in window.__karma__.files) {
@@ -8,7 +7,6 @@ for (var file in window.__karma__.files) {
   if (window.__karma__.files.hasOwnProperty(file)) {
     if (/test\.js$/.test(file)) {
       tests.push(file);
-      rtests.push(file);
     }
   }
 
@@ -20,9 +18,6 @@ for (var file in window.__karma__.files) {
 
 require.config({
     baseUrl: 'base',
-    paths: {
-      Squire: '../bower_components/squire/src/Squire'
-    },
 
     // ask Require.js to load these files (all our tests)
     deps: ['src/app.bootstrap'].concat(tests)
