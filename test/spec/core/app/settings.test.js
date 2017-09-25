@@ -1,6 +1,7 @@
 define([
     'src/core/app/settings',
-    'src/settings'],
+    'src/settings',
+    'src/app.bootstrap'],
   function (settings, root) {
     describe('module app tests', function () {
 
@@ -14,7 +15,7 @@ define([
 
       });
 
-      it('создается имя с нэймспейсом', function () {
+      it('create name with namespace', function () {
         expect(settings.getFullName).toBeDefined();
         expect(window.angular.isFunction(settings.getFullName)).toEqual(true);
         expect(settings.getFullName('name')).toEqual(ns + '.name');

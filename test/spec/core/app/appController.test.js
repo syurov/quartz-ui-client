@@ -1,6 +1,6 @@
 define([
-
-    'src/core/app/appController'
+    'src/core/app/appController',
+    'src/app.bootstrap'
   ],
   function (ctrlName) {
     describe('appController tests', function () {
@@ -21,7 +21,7 @@ define([
       }));
 
       it('data toBeDefined', function () {
-        expect(MainCtrl).toBeDefined();
+        expect(MainCtrl.data).toBeDefined();
       });
     });
   });
