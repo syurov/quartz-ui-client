@@ -103,13 +103,14 @@
         },
 
         editConnection: function (connection) {
+          var that = this;
           var c = angular.copy(connection);
           var dialog = this.modalSrv.showCreateConnectionDialog(c);
 
           dialog.then(
             function() {
               angular.extend(connection, c);
-              this.saveDataToLocal();
+              that.saveDataToLocal();
             }
           );
 

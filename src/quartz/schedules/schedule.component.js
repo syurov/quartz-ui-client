@@ -8,14 +8,14 @@
   define([
       '../module',
       '../settings',
-      './services/modal.srv'
+      //'./services/modal.srv'
     ],
     function (module, settings, modalSrvName) {
       'use strict'
 
       var depName = settings.dPrefix + Schedule.name;
 
-      Schedule.$inject = ['$scope', modalSrvName];
+      Schedule.$inject = ['$scope'];
 
       /**
        @ngdoc overview
@@ -41,11 +41,9 @@
 
       module.component(depName, {
         controller: Schedule,
-        templateUrl: "quartz/connection/connection.component.tpl.html",
+        templateUrl: "quartz/schedules/schedule.component.tpl.html",
         bindings: {
-          data: "<",
-          isLocalStorage: "<",
-          tabs: "<",
+          connection: "<",
         }
       });
 

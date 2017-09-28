@@ -23,5 +23,9 @@ define([
       it('data toBeDefined', function () {
         expect(MainCtrl.data).toBeDefined();
       });
+
+      it('tabs toBeDefined', function () {
+        expect(MainCtrl.tabs).toBeDefined();
+      });
     });
   });
