@@ -8,7 +8,7 @@
     [
       './core/app/settings',
       './core/index',
-      './quartz/index'
+      './ui/index'
     ],
     function (settings) {
       'use strict';
