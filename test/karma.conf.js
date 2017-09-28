@@ -18,15 +18,15 @@ module.exports = function (config) {
     // list of files / patterns to load in the browser
     files: [
       // bower:js
-      'bower_components/es5-shim/es5-shim.js',
-      'bower_components/jquery/dist/jquery.js',
-      'bower_components/moment/moment.js',
+      //'bower_components/es5-shim/es5-shim.js',
+     // 'bower_components/jquery/dist/jquery.js',
+     // 'bower_components/moment/moment.js',
       'bower_components/angular/angular.js',
-      'bower_components/bootstrap/dist/js/bootstrap.js',
-      'bower_components/angular-messages/angular-messages.js',
+      //'bower_components/bootstrap/dist/js/bootstrap.js',
+     // 'bower_components/angular-messages/angular-messages.js',
       'bower_components/angular-resource/angular-resource.js',
       'bower_components/angular-ui-tree/dist/angular-ui-tree.js',
-      'bower_components/angular-toastr/dist/angular-toastr.tpls.js',
+      //'bower_components/angular-toastr/dist/angular-toastr.tpls.js',
       'bower_components/requirejs/require.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
