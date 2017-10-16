@@ -1,3 +1,48 @@
-schedule
+<div class="row">
+  <div class="col-md-12" style="float:right; padding-right:0px;">
+    <a class="pull-right btn btn-danger btn-xs" ng-click="$ctrl.refresh()">
+      <span class="fa fa-refresh"></span></a>
+  </div>
+</div>
 
-{{$ctrl.connection}}
+<div class="row" ng-repeat="group in $ctrl.triggers">
+
+  <div class="row">
+    <div class="col-md-12">
+      <h4>{{group.name}}</h4>
+    </div>
+  </div>
+
+  <div class="row" ng-repeat="tr in group.triggers">
+    <div class="col-md-2">Name</div>
+    <div class="col-md-1">State</div>
+    <div class="col-md-1">Job Data Map</div>
+    <div class="col-md-1">Start Time</div>
+    <div class="col-md-1">End Time</div>
+    <div class="col-md-1">Previous Fire Time</div>
+    <div class="col-md-1">Next Fire Time</div>
+    <div class="col-md-1">Final Fire Time</div>
+    <div class="col-md-2">Job Name</div>
+    <div class="col-md-1">Group Job Name</div>
+  </div>
+
+
+  <div class="row" ng-repeat="tr in group.triggers">
+    <div class="col-md-2">{{tr.name}}</div>
+    <div class="col-md-1"></div>
+    <div class="col-md-1">
+      <a class="pull-right" >
+      <span class="fa fa-database"></span></a>
+    </div>
+    <div class="col-md-1">{{tr.startTime}}</div>
+    <div class="col-md-1">{{tr.endTime}}</div>
+    <div class="col-md-1">{{tr.previousFireTime}}</div>
+    <div class="col-md-1">{{tr.nextFireTime}}</div>
+    <div class="col-md-1">{{tr.finalFireTime}}</div>
+    <div class="col-md-2">{{tr.jobName}}</div>
+    <div class="col-md-1">{{tr.jobGroup}}</div>
+
+  </div>
+
+</div>
+

@@ -11,7 +11,7 @@
     function (settings) {
       var ret = settings.createChild(namespace);
 
-      ret.deps = ['ui.tree', 'ui.bootstrap'];
+      ret.deps = ['ui.tree', 'ui.bootstrap', 'ngResource'];
       return ret;
     });
 
