@@ -50,9 +50,11 @@
 
             this.saveDataToLocal();
           } else {
-            var data = angular.fromJson(json);
-            this.data.length = 0;
-            angular.extend(this.data, data);
+            if (json != "undefined") {
+              var data = angular.fromJson(json);
+              this.data.length = 0;
+              angular.extend(this.data, data);
+            }
           }
         }
 
@@ -78,7 +80,7 @@
             nodes: []
           };
 
-          this.editGroup(group).then(function() {
+          this.editGroup(group).then(function () {
             this.data.push(group);
             this.saveDataToLocal();
           });
@@ -93,7 +95,7 @@
           };
 
           this.editConnection(connection).then(
-            function() {
+            function () {
               nodeData.nodes.push(connection);
               this.saveDataToLocal();
             }
@@ -108,7 +110,7 @@
           var dialog = this.modalSrv.showCreateConnectionDialog(c);
 
           dialog.then(
-            function() {
+            function () {
               angular.extend(connection, c);
               that.saveDataToLocal();
             }
@@ -122,7 +124,7 @@
           var dialog = this.modalSrv.showCreateGroupDialog(g);
 
           dialog.then(
-            function() {
+            function () {
               angular.extend(group, g);
               this.saveDataToLocal();
             }
@@ -175,7 +177,7 @@
 
       module.component(depName, {
         controller: Connections,
-        templateUrl: "quartz/connection/connection.component.tpl.html",
+        templateUrl: "ui/connection/connection.component.tpl.html",
         bindings: {
           data: "<",
           isLocalStorage: "<",

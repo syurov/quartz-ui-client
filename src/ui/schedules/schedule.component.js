@@ -41,7 +41,7 @@
 
       module.component(depName, {
         controller: Schedule,
-        templateUrl: "quartz/schedules/schedule.component.tpl.html",
+        templateUrl: "ui/schedules/schedule.component.tpl.html",
         bindings: {
           connection: "<",
         }

@@ -31,7 +31,7 @@
       ModalService.prototype = {
         showCreateGroupDialog: function (group) {
           var modalInstance = this.$modal.open({
-            templateUrl: "quartz/connection/services/forms/group.create.modal.tpl.html",
+            templateUrl: "ui/connection/services/forms/group.create.modal.tpl.html",
             controller: modalGroupCreateCtrlName,
             controllerAs: '$ctrl',
             size: 'sm',
@@ -52,7 +52,7 @@
         },
         showCreateConnectionDialog: function (connection) {
           var modalInstance = this.$modal.open({
-            templateUrl: "quartz/connection/services/forms/connection.create.modal.tpl.html",
+            templateUrl: "ui/connection/services/forms/connection.create.modal.tpl.html",
             controller: modalConnectionCreateCtrlName,
             controllerAs: '$ctrl',
             size: 'sm',

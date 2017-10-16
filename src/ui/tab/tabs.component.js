@@ -36,7 +36,7 @@
 
       module.component(depName, {
         controller: Tabs,
-        templateUrl: "quartz/tab/tabs.component.tpl.html",
+        templateUrl: "ui/tab/tabs.component.tpl.html",
         bindings: {
           tabs: "<",
           active: "<"
