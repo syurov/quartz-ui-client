@@ -6,8 +6,8 @@
 (function (ng) {
 
   define([
-      '../module',
-      '../settings',
+      '../../module',
+      '../../settings',
       './services/quartz.srv'
     ],
     function (module, settings, quartzSrvName) {
@@ -36,8 +36,8 @@
 
         refresh: function () {
           var that = this;
-          this.triggers = this.srv.getTriggers().$promise.then(function (result) {
-            that.triggers = result;
+          this.srv.getTriggers().$promise.then(function (result) {
+            that.groupList = result;
           });
         }
 
@@ -46,7 +46,7 @@
 
       module.component(depName, {
         controller: Schedule,
-        templateUrl: "ui/schedules/schedule.component.tpl.html",
+        templateUrl: "ui/connection/schedules/schedule.component.tpl.html",
         bindings: {
           connection: "<",
         }

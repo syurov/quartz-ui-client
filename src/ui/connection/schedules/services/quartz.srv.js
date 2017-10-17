@@ -4,8 +4,8 @@
 (function (ng) {
 
   define([
-      '../../module',
-      '../../settings'
+      '../../../module',
+      '../../../settings'
     ],
     function (module,
               settings) {

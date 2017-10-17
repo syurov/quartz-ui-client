@@ -5,8 +5,9 @@ define(
   [
     './module'    ,
     './connection/connection.component',
-    './tab/tabs.component',
-    './schedules/schedule.component'
+    './connection/schedules/schedule.component',
+    './connection/schedules/trigger.list.component',
+    './tab/tabs.component'
   ],
   function () {
 

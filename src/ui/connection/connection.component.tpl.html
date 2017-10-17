@@ -1,3 +1,11 @@
+<div class="row">
+  <h4></h4>
+  <div class="pull-right" ng-if="!$ctrl.isCollapse">
+    <button ng-click="$ctrl.addGroup()"><span class="fa fa-plus-circle"></span></button>
+  </div>
+
+</div>
+
 <script type="text/ng-template" id="nodes_renderer.html">
   <div ui-tree-handle class="tree-node tree-node-content">
 
@@ -33,15 +41,10 @@
 
 
 <div class="row">
-  <div class="pull-right">
-    <button ng-click="$ctrl.addGroup()"><span class="fa fa-plus-circle"></span></button>
-    <!--<button ng-click="collapseAll()">Collapse all</button>-->
-  </div>
-</div>
-<div class="row">
   <div ui-tree id="tree-root" drop-enabled="false" drag-enabled="false">
     <ol ui-tree-nodes ng-model="$ctrl.data">
       <li ng-repeat="node in $ctrl.data" ui-tree-node ng-include="'nodes_renderer.html'"></li>
     </ol>
   </div>
 </div>
+

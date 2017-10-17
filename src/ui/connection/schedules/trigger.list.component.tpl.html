@@ -1,0 +1,61 @@
+<div class="row" ng-repeat="group in $ctrl.groupList">
+
+  <div class="row">
+    <div class="col-md-12">
+      <h4>{{group.name}}</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-bordered" style="float:right; padding-right:0px;">
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>State</th>
+          <th>Job Data Map</th>
+          <th>Start Time</th>
+          <th>End Time</th>
+          <th>Previous Fire Time</th>
+          <th>Next Fire Time</th>
+          <th>Final Fire Time</th>
+          <th>Job Name</th>
+          <th>Group Job Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="tr in group.triggers">
+          <td class="col-md-2">{{tr.name}}
+            <ul class="list-inline pull-right" style="margin-right:0px;">
+              <li>
+                <a class="pull-right btn btn-primary btn-xs" ng-click="$ctrl.pause(tr)" title="pause">
+                  <span class="fa fa-pause"></span></a>
+              </li>
+              <li>
+                <a class="pull-right btn btn-primary btn-xs" ng-click="$ctrl.resume(tr)" title="resume">
+                  <span class="fa fa-play"></span></a>
+              </li>
+              <li>
+                <a class="pull-right btn btn-primary btn-xs" ng-click="$ctrl.run(tr)" title="resume">
+                  <span class="fa fa-fire"></span></a>
+              </li>
+            </ul>
+          </td>
+          <td class="col-md-1"></td>
+          <td class="col-md-1">
+            <a class="pull-right">
+              <span class="fa fa-database"></span></a>
+          </td>
+          <td class="col-md-1">{{tr.startTime | date:'yyyy-MM-dd HH:mm:ss Z'}}</td>
+          <td class="col-md-1">{{tr.endTime | date:'yyyy-MM-dd HH:mm:ss Z'}}</td>
+          <td class="col-md-1">{{tr.previousFireTime | date:'yyyy-MM-dd HH:mm:ss Z'}}</td>
+          <td class="col-md-1">{{tr.nextFireTime | date:'yyyy-MM-dd HH:mm:ss Z'}}</td>
+          <td class="col-md-1">{{tr.finalFireTime | date:'yyyy-MM-dd HH:mm:ss Z'}}</td>
+          <td class="col-md-2">{{tr.jobName}}</td>
+          <td class="col-md-1">{{tr.jobGroup}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+

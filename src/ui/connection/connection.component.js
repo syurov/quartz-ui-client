@@ -24,6 +24,7 @@
        */
       function Connections($scope, modalSrv) {
 
+        this.isCollapse = false;
         this.modalSrv = modalSrv;
 
         if (this.isLocalStorage) {
@@ -171,6 +172,8 @@
         isConnection: function (node) {
           return node.type === 'connection';
         },
+
+
 
 
       };

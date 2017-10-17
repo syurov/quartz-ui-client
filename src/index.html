@@ -2,18 +2,18 @@
 <html>
 <head>
   <title>Quartz UI</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <meta charset="utf-8">
 
   <meta name="description" content="">
-  <meta name="viewport" content="width=device-width">
+
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   <!-- build:css(.) styles/vendor.css -->
   <!-- bower:css -->
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-  <link rel="stylesheet" href="bower_components/angular-ui-tree/dist/angular-ui-tree.min.css" />
-  <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css" />
-  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+  <link rel="stylesheet" href="bower_components/angular-ui-tree/dist/angular-ui-tree.min.css"/>
+  <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css"/>
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css"/>
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
@@ -56,63 +56,37 @@
   <!-- endbuild -->
 </head>
 <body>
-<!--[if lte IE 8]>
-<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
-  your browser</a> to improve your experience.</p>
-<![endif]-->
 
-<!-- Add your site or application content here -->
 <div class="header">
-  <!--<div class="navbar navbar-default" role="navigation">-->
-  <!--<div class="container">-->
-  <!--<div class="navbar-header">-->
+  Quartz UI components
 
-  <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">-->
-  <!--<span class="sr-only">Toggle navigation</span>-->
-  <!--<span class="icon-bar"></span>-->
-  <!--<span class="icon-bar"></span>-->
-  <!--<span class="icon-bar"></span>-->
-  <!--</button>-->
 
-  <!--<a class="navbar-brand" href="#/">quartzUi</a>-->
-  <!--</div>-->
+<div ng-controller="quartz.core.main.appController as $ctrl" >
 
-  <!--<div class="collapse navbar-collapse" id="js-navbar-collapse">-->
-
-  <!--<ul class="nav navbar-nav">-->
-  <!--<li class="active"><a href="#/">Home</a></li>-->
-  <!--<li><a ng-href="#/">About</a></li>-->
-  <!--<li><a ng-href="#/">Contact</a></li>-->
-  <!--</ul>-->
-  <!--</div>-->
-  <!--</div>-->
-  <!--</div>-->
-
-  My quartz header
-</div>
-
-<div ng-controller="quartz.core.main.appController as $ctrl">
-  <!--<div ng-include="'views/main.html'" ng-controller="MainCtrl"></div>-->
   <div class="row">
-    <div class="col-md-2">
+    <div class="col-md-12">
+      <button ng-click="$ctrl.isCollapse= !$ctrl.isCollapse"><span
+        class="fa fa-list"></span></button>
+    </div>
+  </div>
+  <div class="row">
+
+    <div class="col-md-2" ng-if="!$ctrl.isCollapse">
       <qz-connections data="$ctrl.data"
                       tabs="$ctrl.tabs"
                       is-local-storage="true">
       </qz-connections>
     </div>
-    <div class="col-md-10">
-      <qz-tabs  tabs="$ctrl.tabs" active="0">
+    <div class="col-md-9">
+      <qz-tabs tabs="$ctrl.tabs" active="0">
       </qz-tabs>
     </div>
   </div>
 </div>
-
-<div class="footer">
-  My quartz footer
-  <!--<div class="container">-->
-  <!--<p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>-->
-  <!--</div>-->
 </div>
+<div class="footer">
+  by Sergey Yurov
 
+</div>
 </body>
 </html>
