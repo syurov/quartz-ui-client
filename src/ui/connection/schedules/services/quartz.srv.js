@@ -30,6 +30,12 @@
             {},
             {
               getTriggers: {url: connection + 'triggers', method: 'GET',  isArray: true},
+              getState: {url: connection + 'triggersState', method: 'GET', transformResponse: function (data) {return {data: angular.fromJson(data)} }},
+              pause: {url: connection + 'pause', method: 'GET'},
+              resume: {url: connection + 'resume', method: 'GET'},
+              fire: {url: connection + 'fire', method: 'GET'},
+              resumeAll: {url: connection + 'resumeAll', method: 'GET'},
+              pauseAll: {url: connection + 'pauseAll', method: 'GET'},
 
             });
         }

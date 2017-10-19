@@ -1,16 +1,41 @@
-<div style="margin-left: 20px;">
-  <div class="row">
-    <div class="col-md-12" style="float:right; padding-right:0px;">
+
+<tabset active="$ctrl.active">
+  <tab index="Jobs" heading="Jobs"  >
+
+  </tab>
+  <tab index="Triggers" heading="Triggers"  >
+    <div style="margin-left: 20px;">
+      <div class="row">
+        <div class="col-md-12" style="float:right; padding-right:0px;">
 
 
-      <a class="btn btn-primary cmd-btn"  ng-click="$ctrl.refresh()">
-        <span class="fa fa-refresh"></span></a>
+          <a class="btn btn-primary cmd-btn"  ng-click="$ctrl.refreshTriggersGroup()">
+            <span class="fa fa-refresh"></span></a>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12" style="float:right; padding-right:0px;">
+          <qz-trigger-list group-list="$ctrl.groupList"
+                           quartz-srv="$ctrl.quartzSrv"
+                           refresh="$ctrl.refreshTriggersGroup"
+          ></qz-trigger-list>
+        </div>
+      </div>
     </div>
-  </div>
+  </tab>
+  <tab index="Scheduler Info" heading="Scheduler Info"  >
 
-  <div class="row">
-    <div class="col-md-12" style="float:right; padding-right:0px;">
-      <qz-trigger-list group-list="$ctrl.groupList"></qz-trigger-list>
-    </div>
-  </div>
-</div>
+  </tab>
+ <tab index="Execution History" heading="Execution History"  >
+
+  </tab>
+ <tab index="Statistic" heading="Statistic"  >
+
+  </tab>
+ <tab index="Execution notification" heading="Execution notification"  >
+
+  </tab>
+</tabset>
+
+

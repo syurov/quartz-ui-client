@@ -174,6 +174,15 @@
         },
 
 
+        pauseAll:function (node) {
+          if (node.pauseAll)
+            node.pauseAll();
+        },
+
+        resumeAll:function (node) {
+          if (node.resumeAll)
+            node.resumeAll();
+        },
 
 
       };

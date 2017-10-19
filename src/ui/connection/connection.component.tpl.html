@@ -1,50 +1,83 @@
-<div class="row">
-  <h4></h4>
-  <div class="pull-right" ng-if="!$ctrl.isCollapse">
-    <button ng-click="$ctrl.addGroup()"><span class="fa fa-plus-circle"></span></button>
+
+  <div class="row">
+    <div class="pull-right">
+      <button ng-click="$ctrl.addGroup()"><span class="fa fa-plus-circle"></span></button>
+    </div>
+
   </div>
 
-</div>
 
-<script type="text/ng-template" id="nodes_renderer.html">
-  <div ui-tree-handle class="tree-node tree-node-content">
+  <script type="text/ng-template" id="nodes_renderer.html">
+    <div ui-tree-handle class="tree-node tree-node-content">
 
-    <a class="btn btn-success btn-xs" ng-if="node.nodes && node.nodes.length > 0" data-nodrag
-       ng-click="$ctrl.toggle(this)">
+      <a class="btn btn-success btn-xs" ng-if="node.nodes && node.nodes.length > 0" data-nodrag
+         ng-click="$ctrl.toggle(this)">
       <span class="fa"
             ng-class="{'fa-chevron-right': this.collapsed, 'fa-chevron-down': !this.collapsed}"></span>
-    </a>
+      </a>
 
-    <a ng-if="node.isOpen"><span class="fa fa-plug"></span></a>
+      <a ng-if="node.isOpen"><span class="fa fa-plug"></span></a>
 
-    <b>{{node.title}}</b>
-    <a class="pull-right btn btn-danger btn-xs" data-nodrag ng-click="$ctrl.remove(this)">
-      <span class="fa fa-minus"></span></a>
-    <a class="pull-right btn btn-primary btn-xs" data-nodrag ng-click="$ctrl.newConnection(this)"
-       ng-if="node.nodes"><span class="fa fa-plus-circle"></span></a>
-    <a class="pull-right btn btn-primary btn-xs" data-nodrag ng-click="$ctrl.edit(this)">
-      <span class="fa fa-pencil"></span></a>
+      <b>{{node.title}}</b>
+      <div class="dropdown pull-right" dropdown>
+        <button type="button" href="#"
+                class="dropdown-toggle btn btn-primary cmd-btn cmd-btn-dropdown"
+                dropdown-toggle                      >
+          <span class="fa fa-bars"></span>
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu pull-right" role="menu">
+          <li ng-if="$ctrl.isConnection(node)">
+            <a href="#" data-nodrag ng-click="$ctrl.open(this)">
+             <span ng-if="!node.isOpen">connect</span><span ng-if="node.isOpen">disconnect</span>	&nbsp;<span class="fa fa-tasks"></span>
+            </a>
+          </li>
+          <li ng-if="$ctrl.isConnection(node)&& node.isOpen">
+            <a href="#" data-nodrag ng-click="$ctrl.pauseAll(node)">
+              pause all	&nbsp;<span class="fa fa-pause"></span>
+            </a>
+          </li>
+          <li ng-if="$ctrl.isConnection(node)&& node.isOpen">
+            <a href="#" data-nodrag ng-click="$ctrl.resumeAll(node)">
+              resume all	&nbsp;<span class="fa fa-play"></span>
+            </a>
+          </li>
 
-    <a class="pull-right btn btn-primary btn-xs" ng-if="$ctrl.isConnection(node)" data-nodrag
-       ng-click="$ctrl.open(this)">
-      <span class="fa fa-tasks"></span></a>
+          <li ng-if="node.nodes">
+            <a href="#" data-nodrag ng-click="$ctrl.newConnection(this)">
+              add	&nbsp;<span class="fa fa-plus-circle"></span>
+            </a>
+          </li>
+          <li ng-if="!node.isOpen">
+            <a href="#" data-nodrag ng-click="$ctrl.edit(this)">
+              edit	&nbsp;<span class="fa fa-pencil"></span>
+            </a>
+          </li>
+          <li ng-if="!node.isOpen">
+            <a href="#" data-nodrag ng-click="$ctrl.remove(this)">
+              remove	&nbsp;<span class="fa fa-minus"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
 
-  </div>
+    </div>
 
 
-  <ol ui-tree-nodes ng-model="node.nodes" ng-class="{hidden: this.collapsed}">
-    <li ng-repeat="node in node.nodes" ui-tree-node ng-include="'nodes_renderer.html'">
-    </li>
-  </ol>
-
-</script>
-
-
-<div class="row">
-  <div ui-tree id="tree-root" drop-enabled="false" drag-enabled="false">
-    <ol ui-tree-nodes ng-model="$ctrl.data">
-      <li ng-repeat="node in $ctrl.data" ui-tree-node ng-include="'nodes_renderer.html'"></li>
+    <ol ui-tree-nodes ng-model="node.nodes" ng-class="{hidden: this.collapsed}">
+      <li ng-repeat="node in node.nodes" ui-tree-node ng-include="'nodes_renderer.html'">
+      </li>
     </ol>
+
+  </script>
+
+
+
+  <div class="row">
+    <div ui-tree id="tree-root" drop-enabled="false" drag-enabled="false">
+      <ol ui-tree-nodes ng-model="$ctrl.data">
+        <li ng-repeat="node in $ctrl.data" ui-tree-node ng-include="'nodes_renderer.html'"></li>
+      </ol>
+    </div>
   </div>
-</div>
 

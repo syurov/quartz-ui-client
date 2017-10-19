@@ -30,6 +30,27 @@
         $onInit: function $onInit() {
         },
 
+        pause:function (trigger) {
+          var that = this;
+          this.quartzSrv.pause(trigger).$promise.then(function (result) {
+            that.refresh();
+          });
+        },
+
+        resume:function (trigger) {
+          var that = this;
+          this.quartzSrv.resume(trigger).$promise.then(function (result) {
+            that.refresh();
+          });
+        },
+
+        fire:function (trigger) {
+          var that = this;
+          this.quartzSrv.fire(trigger).$promise.then(function (result) {
+            that.refresh();
+          });
+        },
+
       };
 
       module.component(depName, {
@@ -38,6 +59,7 @@
         bindings: {
           groupList: "<",
           quartzSrv: "<",
+          refresh: "<",
         }
       });
 
