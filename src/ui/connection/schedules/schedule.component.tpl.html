@@ -1,7 +1,25 @@
 
 <tabset active="$ctrl.active">
   <tab index="Jobs" heading="Jobs"  >
+    <div style="margin-left: 20px;">
+      <div class="row">
+        <div class="col-md-12" style="float:right; padding-right:0px;">
 
+
+          <a class="btn btn-primary cmd-btn"  ng-click="$ctrl.refreshJobsGroup()">
+            <span class="fa fa-refresh"></span></a>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12" style="float:right; padding-right:0px;">
+          <qz-job-list group-list="$ctrl.jobGroupList"
+                           quartz-srv="$ctrl.quartzSrv"
+                           refresh="$ctrl.refreshTriggersGroup"
+          ></qz-job-list>
+        </div>
+      </div>
+    </div>
   </tab>
   <tab index="Triggers" heading="Triggers"  >
     <div style="margin-left: 20px;">
@@ -16,7 +34,7 @@
 
       <div class="row">
         <div class="col-md-12" style="float:right; padding-right:0px;">
-          <qz-trigger-list group-list="$ctrl.groupList"
+          <qz-trigger-list group-list="$ctrl.triggerGroupList"
                            quartz-srv="$ctrl.quartzSrv"
                            refresh="$ctrl.refreshTriggersGroup"
           ></qz-trigger-list>

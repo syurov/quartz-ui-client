@@ -30,6 +30,7 @@
             {},
             {
               getTriggers: {url: connection + 'triggers', method: 'GET',  isArray: true},
+              getJobs: {url: connection + 'jobs', method: 'GET',  isArray: true},
               getState: {url: connection + 'triggersState', method: 'GET', transformResponse: function (data) {return {data: angular.fromJson(data)} }},
               pause: {url: connection + 'pause', method: 'GET'},
               resume: {url: connection + 'resume', method: 'GET'},

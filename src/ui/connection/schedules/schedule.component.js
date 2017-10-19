@@ -32,16 +32,18 @@
 
         this.timer = {};
         this.refreshTriggersGroup = this._refreshTriggersGroup.bind(this);
-        this.connection.refreshTriggersGroup =this.refreshTriggersGroup;
-        this.connection.pauseAll =this.pauseAll.bind(this);
-        this.connection.resumeAll =this.resumeAll.bind(this);
+        this.refreshJobsGroup = this._refreshJobsGroup.bind(this);
+        this.connection.refreshTriggersGroup = this.refreshTriggersGroup;
+        this.connection.pauseAll = this.pauseAll.bind(this);
+        this.connection.resumeAll = this.resumeAll.bind(this);
 
       }
 
       Schedule.prototype = {
         $onInit: function $onInit() {
           var that = this;
-          that.groupList = [];
+          that.triggerGroupList = [];
+          that.jobGroupList = [];
           this.quartzSrv = this.quartzSrvFactory.create(this.connection.url);
 
           // var refreshByTimer = function () {
@@ -61,14 +63,22 @@
           });
 
           this.refreshTriggersGroup();
+          this.refreshJobsGroup();
 
         },
 
         _refreshTriggersGroup: function () {
           var that = this;
           that.quartzSrv.getTriggers().$promise.then(function (result) {
-            that.groupList = result;
+            that.triggerGroupList = result;
             that.refreshAllState(result);
+          });
+        },
+
+        _refreshJobsGroup: function () {
+          var that = this;
+          that.quartzSrv.getJobs().$promise.then(function (result) {
+            that.jobGroupList = result;
           });
         },
 
@@ -84,7 +94,7 @@
           })
         },
 
-        pauseAll:function () {
+        pauseAll: function () {
           var that = this;
           that.quartzSrv.pauseAll().$promise.then(function (result) {
             that.refreshTriggersGroup();
@@ -92,7 +102,7 @@
 
         },
 
-        resumeAll:function () {
+        resumeAll: function () {
           var that = this;
           that.quartzSrv.resumeAll().$promise.then(function (result) {
             that.refreshTriggersGroup();

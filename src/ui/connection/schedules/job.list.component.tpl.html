@@ -1,0 +1,44 @@
+<div class="row" ng-repeat="group in $ctrl.groupList">
+
+  <div class="row">
+    <div class="col-md-12">
+      <h4>{{group.name}}</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-bordered" style="float:right; padding-right:0px;">
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Job Class</th>
+          <th>Job Data Map</th>
+
+          <th>Durable</th>
+          <th>Recoverable</th>
+          <th>Volatile</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="tr in group.jobDetails">
+          <td class="col-md-2">{{tr.name}}
+          </td>
+          <td class="col-md-1">{{tr.description}}</td>
+          <td class="col-md-1">{{tr.jobClass}}</td>
+          <td class="col-md-1">
+            <!--<a class="pull-right">-->
+              <!--<span class="fa fa-database"></span></a>-->
+          </td>
+
+          <td class="col-md-2">{{tr.durable}}</td>
+          <td class="col-md-2">{{tr.persistJobDataAfterExecution}}</td>
+          <td class="col-md-2">{{tr.concurrentExectionDisallowed}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
